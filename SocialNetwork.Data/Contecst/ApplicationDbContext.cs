@@ -1,19 +1,19 @@
-﻿using Microsoft.AspNet.Identity.EntityFramework;
+﻿using Microsoft.EntityFrameworkCore;
 using SocialNetwork.Data.Models;
-using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using DbContext = Microsoft.EntityFrameworkCore.DbContext;
 
 namespace SocialNetwork.Data.Contecst
 {
-    public class ApplicationDbContext : IdentityDbContext<User>
+    public class ApplicationDbContext : DbContext
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
             Database.EnsureCreated();
+        }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            builder.Entity<User>().ToTable("Users");
         }
     }
 }
