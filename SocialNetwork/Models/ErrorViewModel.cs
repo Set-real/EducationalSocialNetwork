@@ -1,5 +1,3 @@
-using System;
-
 namespace SocialNetwork.Models
 {
     public class ErrorViewModel

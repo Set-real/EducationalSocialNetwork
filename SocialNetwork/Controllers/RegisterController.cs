@@ -5,13 +5,13 @@ namespace SocialNetwork.Controllers
 {
     [ApiController]
     [Route("controller")]
-    public class RegisterController: Controller
+    public class RegisterController : Controller
     {
         [Route("Register")]
         [HttpGet]
         public IActionResult Register()
         {
-            return Vies("Home/Register");
+            return View("Home/Register");
         }
 
         [Route("RegisterPart2")]
